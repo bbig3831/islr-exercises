@@ -179,3 +179,7 @@ pls.fit=plsr(Salary~.,data=Hitters,subset=train,scale=TRUE,
 summary(pls.fit)
 
 validationplot(pls.fit,val.type='MSEP')
+pls.pred=predict(pls.fit,x[test,],ncomp=2)
+mean((pls.pred-y.test)^2)
+pls.fit=plsr(Salary~.,data=Hitters,scale=TRUE,ncomp=2)
+summary(pls.fit)
